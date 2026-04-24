@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:3000
+
+### Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "new-user@example.com",
+  "password": "Password123"
+}
+
+### Login
+# Save the accessToken and refreshToken Set-Cookie headers returned by this request.
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "Password123"
+}
+
+### Me
+GET {{baseUrl}}/auth/me
+Cookie: accessToken=paste-access-cookie-value-here
+
+### Refresh
+POST {{baseUrl}}/auth/refresh
+Cookie: refreshToken=paste-refresh-cookie-value-here
+
+### Logout
+POST {{baseUrl}}/auth/logout
+Cookie: accessToken=paste-access-cookie-value-here; refreshToken=paste-refresh-cookie-value-here
+
+### Logout all devices
+POST {{baseUrl}}/auth/logout-all
+Cookie: accessToken=paste-access-cookie-value-here
+
+### Change password
+POST {{baseUrl}}/auth/change-password
+Content-Type: application/json
+Cookie: accessToken=paste-access-cookie-value-here
+
+{
+  "currentPassword": "Password123",
+  "newPassword": "NewPassword123"
+}

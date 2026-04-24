@@ -1,0 +1,29 @@
+@baseUrl = http://localhost:3000
+@adminAccessCookie = paste-admin-or-super-admin-access-cookie-value-here
+@superAdminAccessCookie = paste-super-admin-access-cookie-value-here
+@userId = paste-user-id-here
+
+### List users
+GET {{baseUrl}}/users
+Cookie: accessToken={{adminAccessCookie}}
+
+### Get user
+GET {{baseUrl}}/users/{{userId}}
+Cookie: accessToken={{adminAccessCookie}}
+
+### Promote or demote user
+PATCH {{baseUrl}}/users/{{userId}}/role
+Cookie: accessToken={{superAdminAccessCookie}}
+Content-Type: application/json
+
+{
+  "role": "ADMIN"
+}
+
+### Deactivate user
+PATCH {{baseUrl}}/users/{{userId}}/deactivate
+Cookie: accessToken={{adminAccessCookie}}
+
+### Hard-delete user
+DELETE {{baseUrl}}/users/{{userId}}
+Cookie: accessToken={{superAdminAccessCookie}}
