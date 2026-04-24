@@ -404,7 +404,7 @@ Swagger is the interactive API explorer at [http://localhost:3000/api](http://lo
 
 Here's exactly what happens at each step:
 
-![NestJS Auth Flow Diagram](./assets/auth-flow-diagram.png)
+![NestJS Auth Flow Diagram](./assets/nestjs_auth_flow_diagram.svg)
 
 Password change follows the same security-first approach:
 
